@@ -1,0 +1,1 @@
+Following the tutorials at www.cplusplus.com/doc to refresh on the basics
