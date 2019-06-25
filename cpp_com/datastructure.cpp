@@ -25,19 +25,30 @@ int main ()
         stringstream (mystr) >> films[n].year;
     }
 
-    mine.title = "2001 A Space Odyssey";
-    mine.year = 1968;
+    cout << "\n You have entered these movies: \n";
+    for (n = 0; n < 3; n++)
+        printmovie(films[n]);
+
+    /*
+    // Using pointers
+    movies_t amovie;
+    movies_t *pmovie;
+    pmovie = &amovie;
 
     cout << "Enter title: ";
-    getline (cin, yours.title);
+    getline(cin, pmovie->title);
     cout << "Enter year: ";
-    getline (cin, mystr);
-    stringstream(mystr) >> yours.year;
+    getline(cin, mystr);
+    (stringstream) mystr >> pmovie->year;
 
-    cout << "My favorite movie is: \n";
-    printmovie (mine);
-    cout << "And yours is: \n";
-    printmovie (yours);
+    cout << "\nYou have entered: \n";
+    cout << pmovie->title;;
+    cout << " (" << pmovie->year << ")\n";
+
+    */
+
+
+
     return 0;
 }
 
