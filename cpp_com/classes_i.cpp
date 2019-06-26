@@ -61,7 +61,29 @@ class Circle {
     public:
         Circle(double r) { radius = r; }
         double circum() {return 2*radius*3.14;}
+        double area() {return radius*radius*3.14;}
 };
+
+/*
+
+    Member init in construct
+    Diff ways to init constructor
+    e.g.
+    Rectangle::Rectangle (int x, int y) {width = x; height = y;}
+    Rectangle::Rectangle (int x, int y) : width(x) {height = y;}
+    Rectangle::Rectangle (int x, int y) : width(x), height(y) {}
+    The one above can also be:
+        Rectangle::Rectangle (int x, int y) : width{x}, height{y} {}
+*/
+
+class Cylinder {
+    Circle base;
+    double height;
+    public:
+        Cylinder (double r, double h) : base(r), height(h) {};
+        double volume () {return base.area() * height;}
+};
+
 
 int main ()
 {
@@ -75,5 +97,21 @@ int main ()
     Circle bar = 20.0; // assignment init.
     Circle bas {30.0}; // uniform int. unlike functional, cannot be confused w/ func dec
     Circle qux = {40.0}; // POD-like
+
+    Rectangle obj (3, 4);
+    Rectangle *x, *y, *z;
+    x = &obj;
+    y = new Rectangle (5,6);
+    z = new Rectangle[2] { {2,5}, {3,6}};
+
+    cout << "obj's area: " << obj.area() << "\n";
+    cout << "*x's area: " << x->area() << "\n";
+    cout << "*y's area: " << y->area() << "\n";
+    cout << "z[0]'s area: " << z[0].area() << "\n";
+    cout << "z[1];s area: " << z[1].area() << "\n";
+    
+    delete y;
+    delete[] z;
+
     return 0;
 }
